@@ -9,7 +9,7 @@ public class RomanNumeralsConverterTest {
     @Test
    public void checkRomanNumeralI(){
          String input = "I";
-         Integer expectedResult = 2;
+         Integer expectedResult = 1;
          Integer actualResult = RomanNumeralsConverter.romanNumerals.get(input);
 
          Assertions.assertEquals(expectedResult, actualResult);
