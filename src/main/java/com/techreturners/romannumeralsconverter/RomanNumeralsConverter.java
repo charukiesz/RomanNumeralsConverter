@@ -1,36 +1,44 @@
 package com.techreturners.romannumeralsconverter;
 
-import java.io.Console;
+import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class RomanNumeralsConverter {
+
+
+    private static Map<String, Integer> romanNumerals = new HashMap<String, Integer>(){{  //Declare and instantiate dictionary of Roman Numerals
+        put("I", 1);
+        put("II", 2);
+        put("III", 3);
+        put("IV", 4);
+        put("V", 5);
+        put("VI", 6);
+        put("VII", 7);
+        put("VIII", 8);
+        put("IX", 9);
+        put("X", 10);
+
+    }};
+
+
     public static void main(String[] args) {
 
 
-        romanNumerals.put("I", 1);
-        romanNumerals.put("II", 2);
-        romanNumerals.put("III", 3);
-        romanNumerals.put("IV", 4);
-        romanNumerals.put("V", 5);
-        romanNumerals.put("VI", 6);
-        romanNumerals.put("VII", 7);
-        romanNumerals.put("VIII", 8);
-        romanNumerals.put("IX", 9);
-        romanNumerals.put("X", 10);
-
-
-
-        Console c = System.console();
-        String romanNumeral = c.readLine();
+        Scanner myObj = new Scanner(System.in);     //Create a Scanner object
 
         System.out.println("Please enter a Roman Numeral: ");
 
-        System.out.println(romanNumerals.get(romanNumeral));
+        String romanNumeral = myObj.nextLine();      //Read user input
+
+        System.out.println(getRomanNumeral(romanNumeral));
 
     }
 
-  public static Map<String, Integer> romanNumerals = new HashMap<String, Integer>();
+    public static Integer getRomanNumeral(String romanNumeral)    //Declare member method to return integer value of Roman Numeral
+    {
+        return romanNumerals.get(romanNumeral);
+    }
 
 }
