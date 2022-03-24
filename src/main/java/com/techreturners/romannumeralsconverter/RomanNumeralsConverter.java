@@ -24,21 +24,39 @@ public class RomanNumeralsConverter {
 
 
     public static void main(String[] args) {
-
-
-        Scanner myObj = new Scanner(System.in);     //Create a Scanner object
-
-        System.out.println("Please enter a Roman Numeral: ");
-
-        String romanNumeral = myObj.nextLine();      //Read user input
-
-        System.out.println(getRomanNumeral(romanNumeral));
-
+        Boolean succeed = false;              //Declare and initialise succeed variable to false
+        Scanner myObj = new Scanner(System.in);  //Declare and instantiate Scanner object
+        while (succeed == false) {                    //While succeed is false
+            succeed = getInputRomanNumeral(myObj); //Set value of succeed to the return value of getInputRomanNumeral method
+        }
     }
 
-    public static Integer getRomanNumeral(String romanNumeral)    //Declare member method to return integer value of Roman Numeral
+    // Member method to return integer representation of the Roman Numeral,
+    // or -1 if not a valid Roman Numeral
+    public static Integer getRomanNumeral(String romanNumeral)
     {
-        return romanNumerals.get(romanNumeral);
+        if (romanNumerals.containsKey(romanNumeral)) {       //Check if the input Roman Numeral is valid
+            return romanNumerals.get(romanNumeral);
+        }
+        else
+            return -1;
     }
 
+    //Member method to return integer representation of the Roman Numeral,
+    //or message indicating the Roman Numeral is not valid followed by the message
+    // to prompt user to enter a Roman Numeral
+   public static boolean getInputRomanNumeral(Scanner myObj)
+    {
+        System.out.println("Please enter a Roman Numeral: ");  //Prompt the user to input a Roman Numeral
+
+        String romanNumeral = myObj.nextLine();         //Read and store input in romanNumeral
+    Integer result = getRomanNumeral(romanNumeral);   
+        if (result > -1) {
+            System.out.println(result);          //Print the integer value of the Roman Numeral
+            return true;
+        } else {
+            System.out.println("Not a valid Roman Numeral. Please use the symbols I, V or X.");
+            return false;
+        }
+    }
 }

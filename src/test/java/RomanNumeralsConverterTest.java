@@ -18,6 +18,18 @@ public class RomanNumeralsConverterTest {
         //Assert
          Assertions.assertEquals(expectedResult, actualResult);
     }
+    @Test
+    public void checkRomanNumeralII() {
+        //Arrange
+        RomanNumeralsConverter romanNumeralsConverter = new RomanNumeralsConverter();
+        String romanNumeral = "II";
+        Integer expectedResult = 2;
+        //Act
+        Integer actualResult = RomanNumeralsConverter.getRomanNumeral(romanNumeral);
+        //Assert
+        Assertions.assertEquals(expectedResult, actualResult);
+    }
+
    @Test
     public void checkRomanNumeralV(){
        //Arrange
@@ -31,12 +43,23 @@ public class RomanNumeralsConverterTest {
 
    }
 
+    @Test
+    public void checkRomanNumeralIX() {
+        //Arrange
+        RomanNumeralsConverter romanNumeralsConverter = new RomanNumeralsConverter();
+        String romanNumeral = "IX";
+        Integer expectedResult = 9;
+        //Act
+        Integer actualResult = RomanNumeralsConverter.getRomanNumeral(romanNumeral);
+        //Assert
+        Assertions.assertEquals(expectedResult, actualResult);
+    }
    @Test
     public void checkNotARomanNumeralLowerCasei(){
        //Arrange
        RomanNumeralsConverter romanNumeralsConverter = new RomanNumeralsConverter();
        String romanNumeral = "i";
-       Integer expectedResult = null;
+       Integer expectedResult = -1;
        //Act
        Integer actualResult = RomanNumeralsConverter.getRomanNumeral(romanNumeral);
        //Assert
@@ -45,16 +68,15 @@ public class RomanNumeralsConverterTest {
     }
 
     @Test
-    public void checkNotARomanNumeralLowerCasev(){
+    public void checkNotARomanNumeralLowerCasev() {
         //Arrange
         RomanNumeralsConverter romanNumeralsConverter = new RomanNumeralsConverter();
         String romanNumeral = "v";
-        Integer expectedResult = null;
+        Integer expectedResult = -1;
         //Act
         Integer actualResult = RomanNumeralsConverter.getRomanNumeral(romanNumeral);
         //Assert
         Assertions.assertEquals(expectedResult, actualResult);
-
     }
 
     @Test
@@ -62,23 +84,23 @@ public class RomanNumeralsConverterTest {
         //Arrange
         RomanNumeralsConverter romanNumeralsConverter = new RomanNumeralsConverter();
         String romanNumeral = "a";
-        Integer expectedResult = null;
+        Integer expectedResult = -1;
         //Act
         Integer actualResult = RomanNumeralsConverter.getRomanNumeral(romanNumeral);
         //Assert
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
-    @Test
+   @Test
     public void checkNotARomanNumeralUpperCaseLetter(){
         //Arrange
         RomanNumeralsConverter romanNumeralsConverter = new RomanNumeralsConverter();
         String romanNumeral = "C";
-        Integer expectedResult = null;
+        Integer expectedResult = -1;
         //Act
         Integer actualResult = RomanNumeralsConverter.getRomanNumeral(romanNumeral);
         //Assert
         Assertions.assertEquals(expectedResult, actualResult);
-}
+    }
 
 }
